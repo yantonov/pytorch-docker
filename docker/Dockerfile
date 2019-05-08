@@ -2,11 +2,7 @@ FROM yantonov/anaconda3
 
 MAINTAINER Yury Antonov <yantonov@yandex.ru>
 
-RUN pip install --upgrade pip
-
-# line below is needed to install catboost, jupiterlab
 RUN conda config --add channels conda-forge
-
 RUN conda config --add channels pytorch
 
 ADD files/conda_requirements.txt /
