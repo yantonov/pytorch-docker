@@ -26,7 +26,8 @@ notebook:
 			--notebook-dir=$(CONTAINER_SRC) \
 			--ip=0.0.0.0 \
 			--port=$(JUPITER_PORT) \
-			--no-browser"
+			--no-browser \
+			--allow-root"
 
 lab:
 	docker run \
@@ -40,7 +41,8 @@ lab:
 			--notebook-dir=$(CONTAINER_SRC) \
 			--ip=0.0.0.0 \
 			--port=$(JUPITER_PORT) \
-			--no-browser"
+			--no-browser \
+			--allow-root"
 
 ssh:
 	docker run --rm -t -i -v "$(SRC):$(CONTAINER_SRC)" "$(IMAGE)" bash
