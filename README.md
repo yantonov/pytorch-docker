@@ -1,11 +1,10 @@
 These scripts help to use python machine learning libraries through docker images.
 
 Docker file provides:
-1. [anaconda](https://anaconda.org/anaconda/python)
-2. [pytorch](https://pytorch.org)
-3. [catboost](https://github.com/catboost/catboost)
-4. [jupiter](http://jupyter.org/)
-5. [jupiterlab](https://jupyterlab.readthedocs.io/en/stable/)
+1. [anaconda](https://anaconda.org/anaconda/python) 2019.10
+2. [pytorch](https://pytorch.org) 1.3.1
+3. [jupiter](http://jupyter.org/)
+4. [jupiterlab](https://jupyterlab.readthedocs.io/en/stable/)
 
 Usage:  
 
