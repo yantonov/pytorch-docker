@@ -1,3 +1,4 @@
+conda-forge::catboost
 conda-forge::scrapy
 pytorch::pytorch-cpu
 pytorch::torchvision-cpu
