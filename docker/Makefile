@@ -2,9 +2,12 @@ help:
 	@cat Makefile
 
 DOCKER_FILE=Dockerfile
-SRC?=$(shell pwd)
+
+HOST_SRC?=$(shell pwd)
 CONTAINER_SRC=/src
-JUPITER_PORT=8888
+
+HOST_JUPITER_PORT=8888
+CONTAINER_JUPITER_PORT=8888
 
 IMAGE=yantonov/pytorch
 
@@ -17,15 +20,14 @@ notebook:
 	docker run \
 			--hostname localhost \
 			-i -t \
-			-p 8888:$(JUPITER_PORT) \
-			-v "$(SRC):$(CONTAINER_SRC)" \
+			-p $(HOST_JUPITER_PORT):$(CONTAINER_JUPITER_PORT) \
+			-v "$(HOST_SRC):$(CONTAINER_SRC)" \
 			--rm \
 			"$(IMAGE)" \
-			/bin/bash -c \
 			"jupyter notebook \
 			--notebook-dir=$(CONTAINER_SRC) \
 			--ip=0.0.0.0 \
-			--port=$(JUPITER_PORT) \
+			--port=$(CONTAINER_JUPITER_PORT) \
 			--no-browser \
 			--allow-root"
 
@@ -33,22 +35,22 @@ lab:
 	docker run \
 			--hostname localhost \
 			-i -t \
-			-p 8888:$(JUPITER_PORT) \
-			-v "$(SRC):$(CONTAINER_SRC)" \
+			-p $(HOST_JUPITER_PORT):$(CONTAINER_JUPITER_PORT) \
+			-v "$(HOST_SRC):$(CONTAINER_SRC)" \
 			--rm \
 			"$(IMAGE)" \
 			"jupyter lab \
 			--notebook-dir=$(CONTAINER_SRC) \
 			--ip=0.0.0.0 \
-			--port=$(JUPITER_PORT) \
+			--port=$(CONTAINER_JUPITER_PORT) \
 			--no-browser \
 			--allow-root"
 
 ssh:
-	docker run --rm -t -i -v "$(SRC):$(CONTAINER_SRC)" "$(IMAGE)" bash
+	docker run --rm -t -i -v "$(HOST_SRC):$(CONTAINER_SRC)" "$(IMAGE)" bash
 
 root:
-	docker run --rm -u 0 -t -i -v "$(SRC):$(CONTAINER_SRC)" "$(IMAGE)" bash
+	docker run --rm -u 0 -t -i -v "$(HOST_SRC):$(CONTAINER_SRC)" "$(IMAGE)" bash
 
 
 stop:
