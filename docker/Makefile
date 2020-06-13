@@ -10,6 +10,7 @@ HOST_JUPITER_PORT=8888
 CONTAINER_JUPITER_PORT=8888
 
 IMAGE=yantonov/pytorch
+CONTAINER_NAME?=$(shell echo "$(IMAGE)" | tr '/' '_')
 
 build:
 	docker build \
@@ -22,6 +23,7 @@ notebook:
 			-i -t \
 			-p $(HOST_JUPITER_PORT):$(CONTAINER_JUPITER_PORT) \
 			-v "$(HOST_SRC):$(CONTAINER_SRC)" \
+			--name "$(CONTAINER_NAME)" \
 			--rm \
 			"$(IMAGE)" \
 			"jupyter notebook \
@@ -37,6 +39,7 @@ lab:
 			-i -t \
 			-p $(HOST_JUPITER_PORT):$(CONTAINER_JUPITER_PORT) \
 			-v "$(HOST_SRC):$(CONTAINER_SRC)" \
+			--name "$(CONTAINER_NAME)" \
 			--rm \
 			"$(IMAGE)" \
 			"jupyter lab \
@@ -54,7 +57,7 @@ root:
 
 
 stop:
-	docker stop "$(shell docker ps -a --filter "ancestor=$(IMAGE)" --format '{{.ID}}' | head -n 1 || echo "")"
+	docker stop "$(CONTAINER_NAME)"
 
 pull:
 	docker pull "$(IMAGE)"
