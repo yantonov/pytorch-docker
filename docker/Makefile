@@ -3,10 +3,10 @@ help:
 
 DOCKER_FILE=Dockerfile
 
-HOST_SRC?=$(shell pwd)
+SRC?=$(shell pwd)
 CONTAINER_SRC=/src
 
-HOST_JUPITER_PORT=8888
+JUPITER_PORT=8888
 CONTAINER_JUPITER_PORT=8888
 
 IMAGE=yantonov/pytorch
@@ -21,8 +21,8 @@ notebook:
 	docker run \
 			--hostname localhost \
 			-i -t \
-			-p $(HOST_JUPITER_PORT):$(CONTAINER_JUPITER_PORT) \
-			-v "$(HOST_SRC):$(CONTAINER_SRC)" \
+			-p $(JUPITER_PORT):$(CONTAINER_JUPITER_PORT) \
+			-v "$(SRC):$(CONTAINER_SRC)" \
 			--name "$(CONTAINER_NAME)" \
 			--rm \
 			"$(IMAGE)" \
@@ -37,8 +37,8 @@ lab:
 	docker run \
 			--hostname localhost \
 			-i -t \
-			-p $(HOST_JUPITER_PORT):$(CONTAINER_JUPITER_PORT) \
-			-v "$(HOST_SRC):$(CONTAINER_SRC)" \
+			-p $(JUPITER_PORT):$(CONTAINER_JUPITER_PORT) \
+			-v "$(SRC):$(CONTAINER_SRC)" \
 			--name "$(CONTAINER_NAME)" \
 			--rm \
 			"$(IMAGE)" \
@@ -50,10 +50,10 @@ lab:
 			--allow-root"
 
 ssh:
-	docker run --rm -t -i -v "$(HOST_SRC):$(CONTAINER_SRC)" "$(IMAGE)" bash
+	docker run --rm -t -i -v "$(SRC):$(CONTAINER_SRC)" "$(IMAGE)" bash
 
 root:
-	docker run --rm -u 0 -t -i -v "$(HOST_SRC):$(CONTAINER_SRC)" "$(IMAGE)" bash
+	docker run --rm -u 0 -t -i -v "$(SRC):$(CONTAINER_SRC)" "$(IMAGE)" bash
 
 
 stop:
