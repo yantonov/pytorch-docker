@@ -3,13 +3,12 @@ These scripts help to use python machine learning libraries through docker image
 Docker file provides:
 1. [anaconda](https://anaconda.org/anaconda/python)
 2. [pytorch](https://pytorch.org)
-3. [catboost](https://catboost.ai)
-4. [jupiter](http://jupyter.org/)
-5. [jupiterlab](https://jupyterlab.readthedocs.io/en/stable/)
+3. [jupiter](http://jupyter.org/)
+4. [jupiterlab](https://jupyterlab.readthedocs.io/en/stable/)
 
-See [requirements.txt](https://github.com/yantonov/pytorch-docker/blob/master/docker/files/requirements.txt) to check package versions.
+See [requirements.txt](https://github.com/yantonov/pytorch-docker/blob/master/docker/files/requirements.txt) to check package versions and additional package list.
 
-Usage:  
+Usage:
 
 Add repository to PATH variable.
 
