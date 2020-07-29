@@ -25,5 +25,5 @@ pytorch.sh
 After that you can connect to notebook at localhost:8888, current working directory will be mounted also.
 
 Links:
-1. [Anaconda docker files](https://github.com/ContinuumIO/docker-images)
-2. [pytorch image at docker hub](https://hub.docker.com/r/yantonov/pytorch/)
+1. [pytorch.org](https://pytorch.org/)
+2. [image at docker hub](https://hub.docker.com/r/yantonov/pytorch/)
