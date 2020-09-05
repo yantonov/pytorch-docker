@@ -14,11 +14,11 @@ Add repository to PATH variable.
 
 Run jupiter notebook:
 ```bash
-pytorch.sh notebook
+    run.sh notebook
 ```
 Run jupiter lab:
 ```bash
-pytorch.sh
+    run.sh
 ```
 
 After that you can connect to notebook at localhost:8888, current working directory will be mounted also.
