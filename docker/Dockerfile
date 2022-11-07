@@ -8,6 +8,12 @@ RUN conda config --add channels pytorch
 RUN apt-get update && \
     # required for twisted (gcc is required)
     apt-get install -y build-essential && \
+
+    # opencv-python
+    apt-get install -y ffmpeg libsm6 libxext6 && \
+
+    # typically used in some notebooks
+    apt-get install -y wget && \
     apt-get clean
 
 ADD files/* /
