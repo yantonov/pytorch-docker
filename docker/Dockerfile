@@ -1,6 +1,6 @@
 FROM yantonov/anaconda3:2020.11
 
-MAINTAINER Yury Antonov <yantonov@yandex.ru>
+MAINTAINER Yury Antonov <1390348+yantonov@users.noreply.github.com>
 
 RUN conda config --add channels conda-forge
 RUN conda config --add channels pytorch
