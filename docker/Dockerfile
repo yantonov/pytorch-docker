@@ -1,4 +1,4 @@
-FROM yantonov/anaconda3:2020.11
+FROM yantonov/anaconda3:2023.09
 
 MAINTAINER Yury Antonov <1390348+yantonov@users.noreply.github.com>
 
