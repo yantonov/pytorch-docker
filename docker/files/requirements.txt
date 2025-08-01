@@ -1,4 +1,4 @@
-torch==2.6.0
+torch==2.7.1
 torchvision
 torchaudio
 #transformers==2.4.1
